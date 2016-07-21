@@ -23,5 +23,7 @@ public class Constants {
     public static final String LEVEL_KEY = "LevelCount";
     public static int LEVEL_COUNT = 0;
 
+    public static final String SHAPES_ARRAY[]=new String[]{"oval","rhombus","circle"};
+
 
 }

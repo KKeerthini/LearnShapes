@@ -25,6 +25,7 @@ public class GuessTheShapeActivity extends AppCompatActivity {
     SharedPref sharedPref;
     ImageView firstLevelIv, secLevelIv, thirdLevelIv, fourthLevelIv, fifthLevelIv, sixthLevelIv;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,10 +54,11 @@ public class GuessTheShapeActivity extends AppCompatActivity {
 
         context = getApplicationContext();
         sharedPref = new SharedPref(context);
+        sharedPref.clearAll();
 
-      //  chooseFragment();
+        //  chooseFragment();
 
-        sharedPref.setString(Constants.CURRENT_SHAPE, "oval");
+        sharedPref.setString(Constants.CURRENT_SHAPE, Constants.SHAPES_ARRAY[0]);
         Bundle bundle = new Bundle();
         bundle.putString("currentShape", sharedPref.getString(Constants.CURRENT_SHAPE));
 
@@ -68,8 +70,7 @@ public class GuessTheShapeActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onDestroy()
-    {
+    public void onDestroy() {
         super.onDestroy();
         finish();
     }
@@ -183,7 +184,7 @@ public class GuessTheShapeActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent=new Intent(GuessTheShapeActivity.this, MainActivity.class);
+        Intent intent = new Intent(GuessTheShapeActivity.this, MainActivity.class);
         startActivity(intent);
     }
 }
