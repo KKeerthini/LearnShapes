@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">LearnShapes</string>
+
+    <string name="find_shapes">Find Shapes</string>
+    <string name="learn_shapes">Learn Shapes</string>
+    <string name="more_games">More Games</string>
+
+    <string-array name="jazzy_effects">
+        <item>Standard</item>
+        <item>Tablet</item>
+        <item>CubeIn</item>
+        <item>CubeOut</item>
+        <item>FlipVertical</item>
+        <item>FlipHorizontal</item>
+        <item>Stack</item>
+        <item>ZoomIn</item>
+        <item>ZoomOut</item>
+        <item>RotateUp</item>
+        <item>RotateDown</item>
+        <item>Accordion</item>
+    </string-array>
+</resources>

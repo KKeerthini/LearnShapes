@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+<LinearLayout
+    android:id="@+id/levelLayout"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_thirty"
+    android:orientation="horizontal">
+    
+    <ImageView
+        android:id="@+id/firstLevel"
+        android:layout_width="@dimen/dp_25"
+        android:layout_height="@dimen/dp_25"
+        android:background="@color/colorPrimary"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        android:layout_marginLeft="@dimen/dp_10dp"/>
+
+    <ImageView
+        android:id="@+id/secLevel"
+        android:layout_width="@dimen/dp_25"
+        android:layout_height="@dimen/dp_25"
+        android:background="@color/colorPrimary"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        android:layout_marginLeft="@dimen/dp_10dp"/>
+    <ImageView
+        android:id="@+id/thirdLevel"
+        android:layout_width="@dimen/dp_25"
+        android:layout_height="@dimen/dp_25"
+        android:background="@color/colorPrimary"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        android:layout_marginLeft="@dimen/dp_10dp"/>
+
+    <ImageView
+        android:id="@+id/fourthLevel"
+        android:layout_width="@dimen/dp_25"
+        android:layout_height="@dimen/dp_25"
+        android:background="@color/colorPrimary"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        android:layout_marginLeft="@dimen/dp_10dp"/>
+    <ImageView
+        android:id="@+id/fifthLevel"
+        android:layout_width="@dimen/dp_25"
+        android:layout_height="@dimen/dp_25"
+        android:background="@color/colorPrimary"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        android:layout_marginLeft="@dimen/dp_10dp"/>
+
+    <ImageView
+        android:id="@+id/sixthLevel"
+        android:layout_width="@dimen/dp_25"
+        android:layout_height="@dimen/dp_25"
+        android:background="@color/colorPrimary"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        android:layout_marginLeft="@dimen/dp_10dp"/>
+
+
+</LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/mainLayout"
+        android:layout_below="@+id/levelLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
