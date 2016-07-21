@@ -46,6 +46,7 @@ public class GuessTheShapeFragment extends Fragment implements View.OnClickListe
         currentShape = bundle.getString("currentShape");
         sharedPref.setInt(Constants.OVAL_COUNT, Constants.OVAL_GET_COUNT);
         addImageArray();
+        exactImageArray = (int[]) completeImage.get(imageArraySize);
         findingCorrectImage();
 
         firstImage = (ImageView) view.findViewById(R.id.firstImage);
@@ -71,12 +72,13 @@ public class GuessTheShapeFragment extends Fragment implements View.OnClickListe
             case R.id.firstImage:
                 if (currentImageSelected == exactImageArray[0]) {
                     Toast.makeText(context, "One fragment" + currentImageSelected, Toast.LENGTH_SHORT).show();
-                    Toast.makeText(context, "Its a " + currentShape, Toast.LENGTH_SHORT).show();
-                    sharedPref.setInt(Constants.OVAL_COUNT,  Constants.OVAL_GET_COUNT++ );
+
+                    sharedPref.setInt(Constants.OVAL_COUNT, Constants.OVAL_GET_COUNT++);
+                    Toast.makeText(context, "Its a " + currentShape + sharedPref.getInt(Constants.OVAL_COUNT), Toast.LENGTH_SHORT).show();
                     imageArraySize++;
 
                     if (sharedPref.getInt(Constants.OVAL_COUNT) % 3 == 0) {
-                        sharedPref.setString(Constants.CURRENT_SHAPE, Constants.SHAPES_ARRAY[incrementCurrentShape++]);
+                        sharedPref.setString(Constants.CURRENT_SHAPE, Constants.SHAPES_ARRAY[incrementCurrentShape+1]);
                         currentShape = sharedPref.getString(Constants.CURRENT_SHAPE);
 
                     }
@@ -92,8 +94,9 @@ public class GuessTheShapeFragment extends Fragment implements View.OnClickListe
             case R.id.secondImage:
                 if (currentImageSelected == exactImageArray[1]) {
                     Toast.makeText(context, "One fragment" + currentImageSelected, Toast.LENGTH_SHORT).show();
-                    Toast.makeText(context, "Its a " + currentShape, Toast.LENGTH_SHORT).show();
-                    sharedPref.setInt(Constants.OVAL_COUNT, Constants.OVAL_GET_COUNT++ );
+
+                    sharedPref.setInt(Constants.OVAL_COUNT, Constants.OVAL_GET_COUNT++);
+                    Toast.makeText(context, "Its a " + currentShape + sharedPref.getInt(Constants.OVAL_COUNT), Toast.LENGTH_SHORT).show();
                     imageArraySize++;
 
 
@@ -112,8 +115,9 @@ public class GuessTheShapeFragment extends Fragment implements View.OnClickListe
             case R.id.thirdImage:
                 if (currentImageSelected == exactImageArray[2]) {
                     Toast.makeText(context, "One fragment" + currentImageSelected, Toast.LENGTH_SHORT).show();
-                    Toast.makeText(context, "Its a " + currentShape, Toast.LENGTH_SHORT).show();
+
                     sharedPref.setInt(Constants.OVAL_COUNT, Constants.OVAL_GET_COUNT++);
+                    Toast.makeText(context, "Its a " + currentShape + sharedPref.getInt(Constants.OVAL_COUNT), Toast.LENGTH_SHORT).show();
                     imageArraySize++;
 
                     if (sharedPref.getInt(Constants.OVAL_COUNT) % 3 == 0) {
@@ -138,11 +142,11 @@ public class GuessTheShapeFragment extends Fragment implements View.OnClickListe
         int[] imagesArray1 = new int[]{R.drawable.circle_cd, R.drawable.oval_mirror, R.drawable.square_cushion};
         int[] imagesArray2 = new int[]{R.drawable.circle_coins, R.drawable.oval_ruby, R.drawable.rect_creditcard};
         int[] imagesArray3 = new int[]{R.drawable.oval_coin, R.drawable.rect_mobile, R.drawable.circle_ball};
-        int[] imagesArray4 =new int[]{R.drawable.triangle_billiards,R.drawable.circle_coins,R.drawable.rhombus_kite};
+        int[] imagesArray4 = new int[]{R.drawable.triangle_billiards, R.drawable.circle_coins, R.drawable.rhombus_kite};
         int[] imagesArray5 = new int[]{R.drawable.rect_diary, R.drawable.rhombus_sign, R.drawable.circle_coins};
         int[] imagesArray6 = new int[]{R.drawable.rhombus_search, R.drawable.rect_mobile, R.drawable.circle_cd};
-        int[] imagesArray7 =new int[]{R.drawable.triangle_riskwarning,R.drawable.circle_ball,R.drawable.rect_diary};
-        int[] imagesArray8 =new int[]{R.drawable.circle_coins,R.drawable.square_saltine,R.drawable.triangle_melon};
+        int[] imagesArray7 = new int[]{R.drawable.triangle_riskwarning, R.drawable.circle_ball, R.drawable.rect_diary};
+        int[] imagesArray8 = new int[]{R.drawable.circle_coins, R.drawable.square_saltine, R.drawable.triangle_melon};
         int[] imagesArray9 = new int[]{R.drawable.square_chess, R.drawable.rect_diary, R.drawable.circle_cd};
         completeImage = new ArrayList();
         completeImage.add(imagesArray1);
@@ -173,12 +177,30 @@ public class GuessTheShapeFragment extends Fragment implements View.OnClickListe
     }
 
     private void findingCorrectImage() {
-        if (currentShape.equals("oval")) {
-            currentShapeArray = DifferentShapes.OVAL.getDrawable();
+
+        switch(currentShape)
+        {
+            case "oval":
+                currentShapeArray = DifferentShapes.OVAL.getDrawable();
+                break;
+            case "rhombus":
+                currentShapeArray = DifferentShapes.RHOMBUS.getDrawable();
+                break;
+
+            case "circle":
+                currentShapeArray = DifferentShapes.CIRCLE.getDrawable();
+                break;
+            case "square":
+                currentShapeArray = DifferentShapes.SQUARE.getDrawable();
+                break;
+            case "triangle":
+                currentShapeArray = DifferentShapes.TRIANGLE.getDrawable();
+                break;
+            case "rect":
+                currentShapeArray = DifferentShapes.RECTANGLE.getDrawable();
+                break;
         }
-       else if (currentShape.equals("rhombus")) {
-            currentShapeArray = DifferentShapes.RHOMBUS.getDrawable();
-        }
+
 
         for (int currentDrawable : currentShapeArray) {
             for (int currentImageArray : (int[]) completeImage.get(imageArraySize)) {
@@ -187,6 +209,6 @@ public class GuessTheShapeFragment extends Fragment implements View.OnClickListe
                 }
             }
         }
-        exactImageArray = (int[]) completeImage.get(imageArraySize);
+
     }
 }

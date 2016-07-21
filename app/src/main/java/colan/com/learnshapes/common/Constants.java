@@ -11,7 +11,7 @@ public class Constants {
     public static final String CIRCLE_COUNT = "CircleCount";
     public static int CIRCLE_GET_COUNT = 0;
     public static final String OVAL_COUNT = "OvalCount";
-    public static int OVAL_GET_COUNT = 0;
+    public static int OVAL_GET_COUNT = 1;
     public static final String SQUARE_COUNT = "SquareCount";
     public static int SQUARE_GET_COUNT = 0;
     public static final String RECT_COUNT = "RectCount";
@@ -23,7 +23,7 @@ public class Constants {
     public static final String LEVEL_KEY = "LevelCount";
     public static int LEVEL_COUNT = 0;
 
-    public static final String SHAPES_ARRAY[]=new String[]{"oval","rhombus","circle"};
+    public static final String SHAPES_ARRAY[]=new String[]{"oval","rhombus","circle","square","triangle","rect"};
 
 
 }
